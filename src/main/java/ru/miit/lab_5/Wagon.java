@@ -1,14 +1,21 @@
 package ru.miit.lab_5;
 
+import ru.miit.lab_5.annotations.CheckESR;
+import ru.miit.lab_5.annotations.DoubleMin;
+
+@DoubleMin
 public class Wagon {
+    @CheckESR
     String esr;
+
     Double conventionalLength;
+
     Integer conventionalWagons;
 
-    public Wagon() {
-        esr = "";
-        conventionalLength = 0.0;
-        conventionalWagons = 0;
+    public Wagon(String esr, Double conventionalLength, Integer conventionalWagons) {
+        this.esr = esr;
+        this.conventionalLength = conventionalLength;
+        this.conventionalWagons = conventionalWagons;
     }
 
     public String getEsr() {
@@ -33,5 +40,12 @@ public class Wagon {
 
     public void setConventionalWagons(Integer conventionalWagons) {
         this.conventionalWagons = conventionalWagons;
+    }
+
+    @Override
+    public String toString() {
+        return "ESR: " + getEsr() + "\n" +
+                "conventionalLength: " + getConventionalLength() + "\n" +
+                "conventionalWagons: " + getConventionalWagons() + "\n";
     }
 }
